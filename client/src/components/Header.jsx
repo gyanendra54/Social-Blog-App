@@ -29,7 +29,7 @@ export default function Header() {
         <FaMoon/>
       </button>
       <Link to='/sign-in'>
-        <button className='mt-2 border-2 rounded-lg px-2 bg-lime-500 text-cyan-50'>
+        <button className='mt-2 border-2 rounded-lg px-2 bg-lime-500 text-cyan-50 hover:bg-lime-700' outline>
             Sign In
         </button>
       </Link>
