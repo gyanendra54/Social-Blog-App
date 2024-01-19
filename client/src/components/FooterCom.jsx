@@ -90,7 +90,7 @@ export default function FooterCom() {
           by="Social Blog"
           year={new Date().getFullYear()}/>       
          </div>
-         <div className='flex gap-6 sm:mt-0 mt-3  sm:justify-center'>
+         <div className='flex gap-6 sm:mt-0 mt-3  sm:justify-center content-end'>
           <Footer.Icon href='#' icon={BsGithub}/>
           <Footer.Icon href='#' icon={BsLinkedin}/>
           <Footer.Icon href='#' icon={BsTwitter}/>
