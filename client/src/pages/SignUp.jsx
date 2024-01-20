@@ -1,6 +1,7 @@
-import { Alert, Spinner, TextInput } from 'flowbite-react'
+import { Alert, Spinner, TextInput, Button } from 'flowbite-react'
 import { useState } from 'react';
 import {Link, useNavigate} from 'react-router-dom'
+import Outh from '../components/Outh';
 export default function SignUp() {
   const [formData, setFormData]=useState({});
   const [errorMessage, setErrorMessages]=useState([null]);
@@ -64,7 +65,7 @@ export default function SignUp() {
              <label htmlFor='password'>Password</label>
               <TextInput type='password' placeholder='Password' id='password'onChange={handleChange}/>
         </div>
-        <button className='px-2 py-1 bg-gradient-to-r from-orange-500 via-gray-500 to-green-500 rounded-lg text-white' type='submit' disabled={loading}>
+        <Button className='px-2 py-1 bg-gradient-to-r from-orange-500 via-gray-500 to-green-500 rounded-lg text-white' type='submit' disabled={loading}>
           {
             loading ? (
              <>
@@ -72,9 +73,9 @@ export default function SignUp() {
               <span className='pl-3'>Loading....</span>
              </>
             ): 'Sign Up'
-          }
-           
-        </button>
+          }           
+        </Button>
+        <Outh/>
         </form>
         <div className='mt-5 flex gap-2 text-sm'>
           <span>Have an account?</span>
