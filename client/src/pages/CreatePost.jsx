@@ -7,7 +7,7 @@ import {
   ref,
   uploadBytesResumable,
 } from 'firebase/storage';
-import { app } from '../firebase';
+import { app } from "../redux/firebase";
 import { useState } from 'react';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
