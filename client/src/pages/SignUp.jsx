@@ -42,7 +42,7 @@ export default function SignUp() {
       {/*left side*/}
       <div className='flex-1'>
       <Link to="/" className=' font-bold dark:text-white text-4xl'>
-      <span className='px-2 py-1 bg-gradient-to-r from-orange-500 via-gray-500 to-green-500 rounded-lg text-white'>
+      <span className='px-2 py-1 bg-gradient-to-r from-orange-500 via-gray-500 to-green-500 rounded-lg text-white  hover:from-pink-500 hover:to-yellow-500'>
           Social
       </span>
       Blog
@@ -65,7 +65,7 @@ export default function SignUp() {
              <label htmlFor='password'>Password</label>
               <TextInput type='password' placeholder='Password' id='password'onChange={handleChange}/>
         </div>
-        <Button className='px-2 py-1 bg-gradient-to-r from-orange-500 via-gray-500 to-green-500 rounded-lg text-white' type='submit' disabled={loading}>
+        <Button className='px-2 py-1 bg-gradient-to-r from-orange-500 via-gray-500 to-green-500 rounded-lg text-white  hover:from-pink-500 hover:to-yellow-500' type='submit' disabled={loading}>
           {
             loading ? (
              <>

@@ -65,7 +65,7 @@ export default function SignIn() {
              <label htmlFor='password'>Password</label>
               <TextInput type='password' placeholder='Password' id='password'onChange={handleChange}/>
         </div>
-        <Button className='px-2 py-1 bg-gradient-to-r from-orange-500 via-gray-500 to-green-500 rounded-lg text-white' type='submit' disabled={loading}>
+        <Button className='px-2 py-1 bg-gradient-to-r from-orange-500 via-gray-500 to-green-500 rounded-lg text-white  hover:from-pink-500 hover:to-yellow-500' type='submit' disabled={loading}>
           {
             loading ? (
              <>
