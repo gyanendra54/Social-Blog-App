@@ -45,14 +45,13 @@ export default function SignIn() {
       {/*left side*/}
       <div className='flex-1'>
       <Link to="/" className=' font-bold dark:text-white text-4xl'>
-      <span className='px-2 py-1 bg-gradient-to-r from-orange-500 via-gray-500 to-green-500 rounded-lg text-white'>
-          Social
+      <span className='px-2 py-1 bg-gradient-to-r from-orange-500 via-gray-500 to-green-500 rounded-lg text-white  hover:from-pink-500 hover:to-yellow-500'>
+          Gyanendra's
       </span>
       Blog
   </Link>
   <p className='text-sm mt-5'>
-    This is demo project, You can sign in with your email and password 
-    or with Google.
+  Join our community of learners and enthusiasts in the world of technology. Whether you're here to delve into the latest web development trends, explore the depths of software engineering, or master new programming languages, we've got you covered.
   </p>
       </div>
       <div className='flex-1'>
