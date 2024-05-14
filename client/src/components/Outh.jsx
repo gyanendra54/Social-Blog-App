@@ -23,7 +23,7 @@ export default function Outh() {
             body: JSON.stringify({
                 name:resultsFromGoogle.user.displayName,
                 email: resultsFromGoogle.user.email,
-                googlephotoUrl:resultsFromGoogle.user.photoURL
+                googlePhotoUrl:resultsFromGoogle.user.photoURL     
             }),
           });
           const data=await res.json();

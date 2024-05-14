@@ -18,11 +18,11 @@ const userSchema=new mongoose.Schema({
     },
     profilePicture:{
         type: String,
-        default:"https://media.istockphoto.com/id/1495088043/vector/user-profile-icon-avatar-or-person-icon-profile-picture-portrait-symbol-default-portrait.jpg?s=612x612&w=0&k=20&c=dhV2p1JwmloBTOaGAtaA3AW1KSnjsdMt7-U_3EZElZ0="
+       default:"https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo.png",
     },
     isAdmin: {
         type: Boolean,
-        default: false,//only for demo
+        default: false,
       },
 },{timestamps:true});
 
