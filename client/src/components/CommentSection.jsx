@@ -1,19 +1,18 @@
-import { Alert, Button, TextInput, Textarea, Modal } from 'flowbite-react';
-import { set } from 'mongoose';
-import { useState, useEffect } from 'react';
+import { Alert, Button, Modal, TextInput, Textarea } from 'flowbite-react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import Comment from './Comment';
 import { HiOutlineExclamationCircle } from 'react-icons/hi';
+
 export default function CommentSection({ postId }) {
   const { currentUser } = useSelector((state) => state.user);
   const [comment, setComment] = useState('');
+  const [commentError, setCommentError] = useState(null);
   const [comments, setComments] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [commentToDelete, setCommentToDelete] = useState(null);
-  const [commentError, setCommentError] = useState(null);
   const navigate = useNavigate();
-  console.log(comments);
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (comment.length > 200) {
@@ -40,7 +39,9 @@ export default function CommentSection({ postId }) {
     } catch (error) {
       setCommentError(error.message);
     }
-  };useEffect(() => {
+  };
+
+  useEffect(() => {
     const getComments = async () => {
       try {
         const res = await fetch(`/api/comment/getPostComments/${postId}`);
@@ -82,6 +83,7 @@ export default function CommentSection({ postId }) {
       console.log(error.message);
     }
   };
+
   const handleEdit = async (comment, editedContent) => {
     setComments(
       comments.map((c) =>
@@ -159,32 +161,32 @@ export default function CommentSection({ postId }) {
             </Alert>
           )}
         </form>
-        )}
-         {comments.length === 0 ? (
-            <p className='text-sm my-5'>No comments yet!</p>
-          ) : (
-            <>
-              <div className='text-sm my-5 flex items-center gap-1'>
-                <p>Comments</p>
-                <div className='border border-gray-400 py-1 px-2 rounded-sm'>
-                  <p>{comments.length}</p>
-                </div>
-              </div>
-              {comments.map((comment) => (
-                    <Comment
-                    key={comment._id}
-                    comment={comment}
-                    onLike={handleLike}
-                    onEdit={handleEdit}
-                    onDelete={(commentId) => {
-                      setShowModal(true);
-                      setCommentToDelete(commentId);
-                    }}
-                  />
-              ))}
-            </>
-          )}
-       <Modal
+      )}
+      {comments.length === 0 ? (
+        <p className='text-sm my-5'>No comments yet!</p>
+      ) : (
+        <>
+          <div className='text-sm my-5 flex items-center gap-1'>
+            <p>Comments</p>
+            <div className='border border-gray-400 py-1 px-2 rounded-sm'>
+              <p>{comments.length}</p>
+            </div>
+          </div>
+          {comments.map((comment) => (
+            <Comment
+              key={comment._id}
+              comment={comment}
+              onLike={handleLike}
+              onEdit={handleEdit}
+              onDelete={(commentId) => {
+                setShowModal(true);
+                setCommentToDelete(commentId);
+              }}
+            />
+          ))}
+        </>
+      )}
+      <Modal
         show={showModal}
         onClose={() => setShowModal(false)}
         popup

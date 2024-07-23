@@ -7,7 +7,7 @@ import {
   ref,
   uploadBytesResumable,
 } from 'firebase/storage';
-import { app } from "../redux/firebase";
+import { app } from '../firebase';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import {
@@ -22,6 +22,7 @@ import {
 import { useDispatch } from 'react-redux';
 import { HiOutlineExclamationCircle } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
+
 export default function DashProfile() {
   const { currentUser, error, loading } = useSelector((state) => state.user);
   const [imageFile, setImageFile] = useState(null);
@@ -91,6 +92,7 @@ export default function DashProfile() {
       }
     );
   };
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
@@ -163,9 +165,7 @@ export default function DashProfile() {
     }
   };
   return (
-    
-    <div className=' max-w-lg  p-3  w-80 mx-20'>
-      
+    <div className='max-w-lg mx-auto p-3 w-full'>
       <h1 className='my-7 text-center font-semibold text-3xl'>Profile</h1>
       <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
         <input
@@ -213,7 +213,7 @@ export default function DashProfile() {
         {imageFileUploadError && (
           <Alert color='failure'>{imageFileUploadError}</Alert>
         )}
-        <TextInput 
+        <TextInput
           type='text'
           id='username'
           placeholder='username'
@@ -227,7 +227,12 @@ export default function DashProfile() {
           defaultValue={currentUser.email}
           onChange={handleChange}
         />
-        
+        <TextInput
+          type='password'
+          id='password'
+          placeholder='password'
+          onChange={handleChange}
+        />
         <Button
           type='submit'
           gradientDuoTone='purpleToBlue'
@@ -241,7 +246,7 @@ export default function DashProfile() {
             <Button
               type='button'
               gradientDuoTone='purpleToPink'
-              className='w-full'
+              className='w-full  bg-gradient-to-r from-orange-500 via-gray-500 to-green-500 '
             >
               Create a post
             </Button>
@@ -249,13 +254,14 @@ export default function DashProfile() {
         )}
       </form>
       <div className='text-red-500 flex justify-between mt-5'>
-      <span onClick={() => setShowModal(true)} className='cursor-pointer'>
+        <span onClick={() => setShowModal(true)} className='cursor-pointer'>
           Delete Account
         </span>
         <span onClick={handleSignout} className='cursor-pointer'>
           Sign Out
         </span>
-        {updateUserSuccess && (
+      </div>
+      {updateUserSuccess && (
         <Alert color='success' className='mt-5'>
           {updateUserSuccess}
         </Alert>
@@ -265,7 +271,7 @@ export default function DashProfile() {
           {updateUserError}
         </Alert>
       )}
-       {error && (
+      {error && (
         <Alert color='failure' className='mt-5'>
           {error}
         </Alert>
@@ -293,8 +299,7 @@ export default function DashProfile() {
             </div>
           </div>
         </Modal.Body>
-      </Modal> 
-      </div>
+      </Modal>
     </div>
   );
 }

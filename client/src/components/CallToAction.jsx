@@ -10,8 +10,8 @@ export default function CallToAction() {
             <p className='text-gray-500 my-2'>
                 Checkout these resources Projects
             </p>
-            <Button gradientDuoTone='purpleToPink' className='rounded-tl-xl rounded-bl-none'>
-                <a href="https://github.com/The-Cool-Coders/Project-Ideas-And-Resources" target='_blank' rel='noopener noreferrer'>
+            <Button gradientDuoTone='purpleToPink' className=' bg-gradient-to-r from-orange-500 via-gray-500 to-green-500 rounded-tl-xl rounded-bl-none'>
+                <a href="https://github.com/gyanendra54" target='_blank' rel='noopener noreferrer'>
                 Top 100 Coding Projects For Beginners
                 </a>
             </Button>
